@@ -1,5 +1,10 @@
+#importar a biblioteca tkinter
 from tkinter import *
 from tkinter import Tk, ttk
+
+#importar pillow
+from PIL import Image, ImageTk
+
 
 # Definicao das cores da interface (cores do colorpicker)
 co0="#1b1b1c" #preto
@@ -36,9 +41,20 @@ frameMeio.grid(row=1, column=0, pady=1, padx=0, sticky=NSEW)
 
 #baixo_filtros ?
 
-frameBaixo = Frame(janela, width=1100, height=500, bg=co1, relief="raised")
+frameBaixo = Frame(janela, width=1100, height=500, bg=co1, relief="flat")
 frameBaixo.grid(row=2, column=0, pady=1, padx=0, sticky=NSEW)
 
+
+#Conteudo dos frames
+#framecima: adicionei pip install pillow
+#ADICIONAR LOGO
+app_img=Image.open('logo3.png')
+app_img = app_img.resize((60, 45)) #para redimensionar o logo
+app_img=ImageTk.PhotoImage(app_img)
+
+#label
+app_logo=Label(frameCima,image=app_img,text="Gestor de Finanças Pessoais", width=900, compound=LEFT, padx=5, anchor=NW, relief= "flat", font=('Verdana', 20, 'bold'), bg=co1, fg=co4) #custumizaçao
+app_logo.place(x=0,y=0)
 
 
 
