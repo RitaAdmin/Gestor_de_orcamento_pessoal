@@ -11,7 +11,7 @@ co0="#1b1b1c" #preto
 co1="#f7f7fa" #branco
 co2="#3a86ff" # Azul 
 co3="#ffbe0b" # Amarelo
-co4="#fa056f" # Rosa
+co4="#163338" # Rosa
 co5="#8338ec" # Roxo
 co6="#fb5607" # Laranja 
 co7="#219ebc" # Azul claro
@@ -53,8 +53,8 @@ app_img = app_img.resize((60, 45)) #para redimensionar o logo
 app_img=ImageTk.PhotoImage(app_img)
 
 #label
-app_logo=Label(frameCima,image=app_img,text="Gestor de Finanças Pessoais", width=900, compound=LEFT, padx=5, anchor=NW, relief= "flat", font=('Verdana', 20, 'bold'), bg=co1, fg=co4) #custumizaçao
-app_logo.place(x=0,y=0)
+app_logo=Label(frameCima,image=app_img,text="Gestor de Finanças Pessoais", compound=LEFT, padx=10, anchor=NW, relief= "flat", font=('Verdana', 20, 'bold'), bg=co1, fg=co4) #custumizaçao
+app_logo.place(relx=0.5,rely=0.5, anchor=CENTER) # dá as coordenada onde titulo deve ficar
 
 
 
