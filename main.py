@@ -8,6 +8,17 @@ from PIL import Image, ImageTk
 #importar do ficheiro operacoes
 from operacoes import ver_dados_categoria, inserir_receita, ver_dados_receita
 
+#importar barra de progresso do tkinter
+from tkinter.ttk import Progressbar
+
+#importar matplotlib
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+
+
+
+
 
 # Definicao das cores da interface (cores do colorpicker)
 co0="#1b1b1c" #preto
@@ -55,13 +66,36 @@ app_img=Image.open('logo3.png')
 app_img = app_img.resize((60, 45)) #para redimensionar o logo
 app_img=ImageTk.PhotoImage(app_img)
 
-#label
+#label (logo e titulo)
 app_logo=Label(frameCima,image=app_img,text="Gestor de Finanças Pessoais", compound=LEFT, padx=10, anchor=NW, relief= "flat", font=('Verdana', 20, 'bold'), bg=co1, fg=co4) #custumizaçao
 app_logo.place(relx=0.5,rely=0.5, anchor=CENTER) # dá as coordenada onde titulo deve ficar
 
 
+#framemeio:
+#barra de progesso do dinheiro gasto
+def percentagem():
+    label_nome= Label(frameMeio, text="Percentagem da Receita consumida", height=1, anchor=NW, font=('Verdana','12'),bg=co1, fg=co4)
+    label_nome.place(x=7,y=5)
+    
+    bar=Progressbar(frameMeio, length=220)
+    bar.place(x=10,y=35)
+    bar['value']=50
+    
+    #style da barra de progressao
+    style=ttk.Style()
+    style.theme_use('default')
+    style.configure("black.Horizontal.TProgressbar", background= 'col4')
+    style.configure("TProgressbar",thickness=30)
+    bar=Progressbar(frameMeio, length=220, style='black.Horizontal.TProgressbar')
+    
+    #label da percentagem
+    valor=50 #provisorio
+    label_percentagem= Label(frameMeio, text="{:,.2f}%".format(valor), anchor=NW, font=('Verdana','12'),bg=co1, fg=co4)
+    label_percentagem.place(x=235,y=35)
 
 
 
 
+#para aparecer na janela
+percentagem() #chamar a funcao para apacecer
 janela.mainloop()
