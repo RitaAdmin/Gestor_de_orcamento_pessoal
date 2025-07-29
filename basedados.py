@@ -10,7 +10,7 @@ with con:
     cur.execute("CREATE TABLE IF NOT EXISTS Categoria (ID INTEGER PRIMARY KEY AUTOINCREMENT,nome TEXT NOT NULL, tipo TEXT CHECK (tipo IN ('receita', 'despesa'))NOT NULL)")
 
 
-#criar tabela de receita
+#criar tabela de Receita
 with con:
     cur=con.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS Receita (ID INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, categoria_id INTEGER NOT NULL, descricao TEXT, adicionado_em DATE DEFAULT CURRENT_DATE, valor REAL NOT NULL, FOREIGN KEY (categoria_id) REFERENCES Categoria (ID))")
@@ -25,6 +25,6 @@ with con:
 #criar tabela USUARIO 
 with con:
     cur=con.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS Usuario (ID INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, email text UNIQUE NOT NULL)")
+    cur.execute("CREATE TABLE IF NOT EXISTS Usuario (ID INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, email  TEXT NOT NULL UNIQUE, senha TEXT NOT NULL)")
 
     
